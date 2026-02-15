@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Serverless ENV Test</title>
+  <style>
+    body{
+      background:black;
+      color:lime;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      font-family:Arial;
+    }
+  </style>
+</head>
+<body>
+
+<div id="msg">Loading...</div>
+
+<script>
+fetch("/.netlify/functions/message")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("msg").innerText =
+      "Message: " + data.message;
+  });
+</script>
+
+</body>
+</html>
